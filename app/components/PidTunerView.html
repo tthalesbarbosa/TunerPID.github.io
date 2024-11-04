@@ -1,0 +1,150 @@
+<div class="ui stackable grid pid-tuner-root">
+	<div class="computer only one wide column pid-tuner-cols"></div>
+
+	<div class="tablet only four wide tablet three wide computer column pid-tuner-cols">
+		<div class="ui one column">
+
+			<div class="row">
+			    <div class="ui stackable grid">
+			    <div class="eight wide column">
+                <button class="fluid ui black icon button" 
+						@click="on_saveClicked(false)">
+					<i class="save icon"></i>
+					Save
+				</button>
+				</div>
+				<div class="eight wide column">
+				<button class="fluid ui grey icon button" 
+						@click="on_saveClicked(true)">
+					<i class="save icon"></i>
+					Save As
+				</button>
+				</div>
+				</div>
+			</div>
+
+			<div class="ui divider"></div>
+
+			<div class="row">
+				<div class="ui fluid vertical steps pid-tuner-steps">  
+				  <div v-for="step in all_steps" :class="{
+								   'step'     : true,
+								   'active'   : current_step == step ? true : false,
+								   'disabled' : isStepDisabled(step)
+							   }"
+							   @click="stepLogic(step)">
+					<i :class="getIcon(step)"></i>
+					<div class="content">
+					  <div class="title">{{ getTitle(step) }}</div>
+					</div>
+				  </div> 
+				</div>
+			</div>
+
+			<div class="row pid-tuner-info" v-if="show_message">
+				<div class="sixteen wide column">
+					<div class="ui icon message">
+						<i class="info circle icon step-selected-showifbig"></i>
+						<i class="close icon" ref="close_button"></i>
+						<div class="content">
+							<p v-html="getInfo(current_step)"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div :class="{
+                   'twelve wide tablet eleven wide computer column pid-tuner-cols'  : true, 
+                   'ui loading segment' : !step_loaded,
+                 }">
+		<div class="ui stackable grid">
+			<div class="row">
+				<div class="three wide column">
+					<button class="fluid ui blue button" 
+					        v-show="getNumber(current_step) > 1"
+					        @click="on_backClicked()">
+						Back
+					</button>
+				</div>
+				<div class="ten wide column middle aligned content">
+					<h3 class="ui center aligned header">
+						{{ getNumber(current_step) + '. ' + getTitle(current_step) }}
+					</h3>
+				</div>
+				<div class="three wide column">
+					<button class="fluid ui green button" 
+					        v-show="getNumber(current_step) < all_steps.length"
+					        :disabled="!next_enabled"
+					        @click="on_nextClicked()">
+							Next
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="sixteen wide column">
+					<component :is="getComponent(current_step)"
+							   @latestStep       ="latest_step = current_step"
+							   @enableNext       ="next_enabled = true"
+							   @disableNext      ="next_enabled = false"
+							   @stepLoaded       ="step_loaded = true"
+							   @stepPaused       ="step_loaded = false"
+							   :time             ="time"
+							   :input            ="input"
+							   :output           ="output"
+							   :cached_range_list="cached_range_list"
+							   :selected_range   ="selected_range"
+							   :uniform_time     ="uniform_time"
+							   :uniform_input    ="uniform_input"
+							   :uniform_output   ="uniform_output"
+							   :cached_model_list="cached_model_list"
+							   :selected_model   ="selected_model"
+							   @updateSelectedModel="(model)=>{selected_model = model}"
+                               :cached_gains_slider="cached_gains_slider"
+                               :cached_time_slider ="cached_time_slider"
+                               :cached_r_size      ="cached_r_size"
+                               :cached_d_size      ="cached_d_size"
+							   :pid_gains        ="pid_gains"
+                               :pidsim_time      ="pidsim_time"
+                               :pidsim_input     ="pidsim_input"
+                               :pidsim_output    ="pidsim_output"
+                               :pidsim_ref       ="pidsim_ref"
+                               :pidsim_dist      ="pidsim_dist"
+                               :margins          ="margins"
+							   :bode_w           ="bode_w"
+							   :bode_mag         ="bode_mag"
+							   :bode_pha         ="bode_pha"
+                               @updateGainsSlider   ="(value)=>{cached_gains_slider = value}"
+                               @updateTimeSlider    ="(value)=>{cached_time_slider  = value}"
+                               @update_cached_r_size="(value)=>{cached_r_size       = value}"
+                               @update_cached_d_size="(value)=>{cached_d_size       = value}"
+							   >
+					</component>				
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="computer only one wide column pid-tuner-cols"></div>
+
+<div class="ui mini modal" ref="dialog">
+  <i class="close icon"></i>
+  <div class="header">
+    {{ dialog.title }}
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">{{ dialog.header }}</div>
+      <p v-html="dialog.content"></p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      OK
+    </div>
+  </div>
+</div>
+	
+</div>

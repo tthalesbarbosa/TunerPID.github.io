@@ -1,0 +1,81 @@
+<div class="pusher">
+	<div class="ui inverted vertical masthead center aligned segment home-background">
+		<div class="ui text container">
+			<h1 class="ui header">
+				Tune your PID
+			</h1>
+			<h2 class="home-subtitle">
+				It has never been easier
+			</h2>
+			<div v-on:click="window.open('https://forum.pidtuner.com/forums/forum/pid-tuner-help/')" :class="{
+				            'ui huge primary button' : true
+				          }">
+				Need Help ?
+			</div>
+			<div v-on:click="onClicked()" :class="{
+				            'ui huge primary button' : true,
+				            'disabled' : !pid_loaded,
+				          }">
+				Get Started
+				<i class="right arrow icon"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui vertical stripe segment">
+		<div class="ui middle aligned stackable grid container">
+			<div class="row">
+				<div class="eight wide column">
+					<h3 class="ui header">
+						Why
+					</h3>
+					<p>
+						Tuning a
+						<a href="https://en.wikipedia.org/wiki/PID_controller" target="_blank">PID controller</a>
+						can be easily done using a systematic procedure. We just put it in a web application. No more trial and error.
+					</p>
+					<h3 class="ui header">
+						How
+					</h3>
+					<p>
+						Use the
+						<a href="https://en.wikipedia.org/wiki/Step_response" target="_blank">step response</a>
+						data from your system and follow the wizard step-by-step. On each step you are free to make decisions to improve your tuning,
+						but the defaults will work just fine.
+					</p>
+				</div>
+				<div class="six wide right floated column">
+					<img class="ui large bordered rounded image home-centered" src="./assets/models/pid_block.svg" alt="Shows basic PID control block diagram"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui vertical stripe segment">
+		<div class="ui middle aligned stackable grid container">
+			<div class="row">
+				<div class="eight wide column">
+					<img class="ui large bordered rounded image home-centered" src="./assets/gifs/wizard.gif" alt="Shows step by step wizard animation"/>
+				</div>
+
+				<div class="six wide right floated column">
+					<h3 class="ui header">
+						Features
+					</h3>
+					<p>
+						<i class="favorite check icon"></i>Copy-paste data import</p>
+					<p>
+						<i class="favorite check icon"></i>Data validation and visualization</p>
+					<p>
+						<i class="favorite check icon"></i>Multi-model data fit</p>
+					<p>
+						<i class="favorite check icon"></i>Auto-tuned PID gains</p>
+					<p>
+						<i class="favorite check icon"></i>Interactive closed-loop simulations</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

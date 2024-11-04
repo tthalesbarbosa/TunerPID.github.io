@@ -1,0 +1,613 @@
+/* ***********************************************************************
+HTML FIXES
+ */
+
+.step-selected-showifsmall {
+  display:none !important;
+}
+
+/* max-width == only if smaller than */ 
+@media only screen and (max-width: 1600px){
+    .step-selected-showifbig {
+      display:none !important;
+    }
+    .step-selected-showifsmall {
+      display:block !important;
+    }
+}
+/* max-width == only if smaller than */ 
+@media only screen and (max-width: 768px){
+    .step-selected-showifbig {
+      display:block !important;
+    }
+    .step-selected-showifsmall {
+      display:none !important;
+    }
+}
+
+/* ***********************************************************************
+VUE FIXES */
+
+[v-cloak] {
+    display: none;
+}
+
+/* ***********************************************************************
+MAIN COMPONENT */
+/*
+https://philipwalton.github.io/solved-by-flexbox/
+*/
+header {
+  z-index: 150 !important;
+}
+
+main {
+  padding-top   : 2.5em !important;
+  padding-bottom: 2.5em !important;
+}
+
+footer {
+  z-index: 150 !important; 
+  justify-content: center;
+}
+
+.social-item {
+  padding       : 10px !important;
+  padding-top   : 0px  !important;
+  padding-bottom: 0px  !important;
+}
+
+/* ***********************************************************************
+HOME COMPONENT */
+
+.home-centered {
+  margin-left  : auto !important;
+  margin-right : auto !important;
+}
+
+.home-background {
+  background          : #E0E1E2 !important;
+  background-image    : url(./../assets/models/governor.svg) !important;
+  background-position : center !important; 
+  background-repeat   : no-repeat !important; 
+  background-size     : 80em !important;
+}
+
+@media only screen and (max-width: 768px){
+  .home-background {
+    background-size     : 50em !important;
+  }    
+}
+
+.home-subtitle {
+  color: black;
+}
+
+.home-tech-card {
+  margin-left : auto !important;
+  margin-right: auto !important;
+  min-height: 10em !important;
+  max-height: 22em !important;
+}
+
+.home-tech-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;  
+}
+
+.home-tech-grid {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+div.home-imgcard {
+  text-align: center !important;
+  padding-top: 0.6em !important;
+  padding-bottom: 0 !important;
+}
+
+.home-cardcol {
+  height: 100% !important;
+}
+
+.home-sponsor-card {
+  min-height: 8em !important;
+  max-height: 18em !important;
+}
+
+.home-sponsor-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+/* min-width == only if larger than */ 
+@media only screen and (min-width: 768px){
+  .home-gold-column {
+    height: 100% !important;  
+  }
+}
+
+.home-platinum {
+  height: 100% !important;
+}
+
+.home-platinum-header {
+  margin-bottom: 2em !important;
+}
+
+.home-sponsor-grid {
+  margin-left   : auto !important;
+  margin-right  : auto !important;
+  margin-top    : auto !important;
+  margin-bottom : auto !important;
+}
+
+/* max-width == only if smaller than */ 
+@media only screen and (max-width: 768px){
+    .home-cardcol {
+      height: auto !important;
+    }
+}
+
+.masthead.segment {
+  min-height: 600px;
+  padding: 1em 0em;
+}
+.masthead .logo.item img {
+  margin-right: 1em;
+}
+.masthead h1.ui.header {
+  margin-top: 2em;
+  margin-bottom: 0em;
+  font-size: 4em;
+  font-weight: normal;
+}
+.masthead h2 {
+  font-size: 1.7em;
+  font-weight: normal;
+}
+
+.ui.vertical.stripe {
+  padding: 4em 0em;
+}
+.ui.vertical.stripe h3 {
+  font-size: 2em;
+}
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+  margin-top: 1.5em;
+}
+.ui.vertical.stripe .floated.image {
+  clear: both;
+}
+.ui.vertical.stripe p {
+  font-size: 1.33em;
+}
+.ui.vertical.stripe .horizontal.divider {
+  margin: 3em 0em;
+}
+
+.quote.stripe.segment {
+  padding: 0em;
+}
+.quote.stripe.segment .grid .column {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.footer.segment {
+  padding: 5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .masthead.segment {
+    min-height: 350px;
+  }
+  .masthead h1.ui.header {
+    font-size: 2em;
+    margin-top: 1.5em;
+  }
+  .masthead h2 {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+  }
+}
+
+/* ***********************************************************************
+PID TUNER COMPONENT */
+
+.pid-tuner-root {
+  padding-top   : 1.5em !important;
+  padding-bottom: 6em !important;
+}
+
+.pid-tuner-info {
+  padding-top: 1em !important;
+}
+
+.pid-tuner-info > div {
+  padding : 0 !important;
+}
+
+.pid-tuner-cols {
+  padding-top 0 !important;
+}
+
+.pid-tuner-steps {
+  cursor: pointer;
+}
+
+/* ***********************************************************************
+IMPORT COMPONENT */
+
+.import-hot-container {
+  height  : 500px;
+  overflow: hidden;
+  padding : 0 !important;
+
+  border-style : solid;
+  border-width : 0.6px;
+  border-radius: 5px;
+  border-color : #E0E1E2;
+}
+
+.import-error-container {
+  padding-top : 0 !important;
+}
+
+.import-error-message {
+  width: 100% !important;
+}
+
+.import-chart {
+  height: 340px;
+}
+
+.import-clean-div {
+    padding: 1rem 1rem!important;
+}
+
+/* ***********************************************************************
+SELECT STEP COMPONENT */
+
+
+.step-select-steps {
+  padding-right: 0 !important;
+}
+
+.step-select-left {
+  width : 60%;
+}
+
+.step-select-right {
+  width : 40%;
+}
+
+.select-step-range {
+  padding: 0 !important;
+}
+
+.step-select-item {
+  padding-top: 0 !important;
+}
+
+.step-select-selected {
+  width : 100% !important;
+}
+
+.step-select-selected-row {
+  padding-bottom: 0 !important;
+}
+
+/* ***********************************************************************
+MODEL STEP COMPONENT */
+
+.model-select-card {
+  width : 96% !important;
+  height: 215px !important;
+}
+
+.model-select-img {
+  padding-top   : 10px;
+  padding-bottom: 10px;
+  padding-left  : 20%;
+  padding-right : 20%;
+  height        : 80px !important;
+}
+
+.model-select-img-div {
+  background: transparent !important;
+  margin: auto;
+}
+
+.model-select-cardhead {
+  font-size: medium;
+}
+
+.model-select-divider {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+.step-select-reset {
+  padding-top: 0 !important;
+}
+
+/* ***********************************************************************
+TUNE PID COMPONENT */
+
+.tune-pid-gain {
+  padding-bottom: 0 !important;
+}
+
+
+
+.tune-pid-label-units {
+  width: 4em !important;  
+}
+
+/*
+.tune-pid-label-2 {
+  width: 8em !important;
+}
+*/
+
+.tune-pid-label {
+  width: 10em !important;
+}
+
+@media only screen and (max-width: 1600px){
+    .tune-pid-label {
+      width: 4.5em !important;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .tune-pid-label {
+      width: 10em !important;
+    }
+}
+
+.tune-pid-slider {
+  padding-top   : 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.tune-pid-slidertext {
+  padding-right : 0 !important;
+}
+
+#tune-pid-sliderdiv-1 {
+  width: 100% !important;
+}
+
+#tune-pid-sliderdiv-2 {
+  width: 100% !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.tune-pid-readonly {
+  background-color : #F8F8F9 !important;
+}
+
+.tune-pid-editicon {
+  position   : absolute !important;
+  color      : #8c8c8c !important;
+  margin-left: -5px !important;
+  margin-top : -5px !important;
+}
+
+.tune-pid-diag-input {
+  margin-bottom: 1em !important;
+}
+
+.ui.modal .header,
+.ui.modal .actions{
+  cursor: move;
+}
+
+div.tabular {
+  cursor: pointer;  
+}
+
+/*!
+ * # Range slider for Semantic UI.
+ * 
+ */
+
+.ui.range {
+	width: 100%;
+	height: 20px;
+}
+
+.ui.range .inner {
+	margin: 0 10px 0 10px;
+	height: 20px;
+	position: relative;
+}
+
+.ui.range .inner:hover {
+	cursor: pointer;
+}
+
+.ui.range .inner .track {
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	border-radius: 4px;
+	top: 9px;
+	left: 0;
+	background-color: rgba(0,0,0,.05);
+}
+
+.ui.inverted.range .inner .track {
+	background-color: rgba(255,255,255,.08);
+}
+
+.ui.range .inner .track-fill {
+	position: absolute;
+	width: 0;
+	height: 4px;
+	border-radius: 4px;
+	top: 9px;
+	left: 0;
+	background-color: #1b1c1d;
+}
+
+.ui.inverted.range .inner .track-fill {
+	background-color: #545454;
+}
+
+.ui.range .inner .thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+	background: #fff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+	background: #fff -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+	background: #fff -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+	border-radius: 100%;
+	box-shadow: 0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+/* Red */
+.ui.red.range .inner .track-fill {
+	background-color: #DB2828;
+}
+.ui.red.inverted.range .inner .track-fill {
+	background-color: #FF695E;
+}
+
+/* Orange */
+.ui.orange.range .inner .track-fill {
+	background-color: #F2711C;
+}
+.ui.orange.inverted.range .inner .track-fill {
+	background-color: #FF851B;
+}
+
+/* Yellow */
+.ui.yellow.range .inner .track-fill {
+	background-color: #FBBD08;
+}
+.ui.yellow.inverted.range .inner .track-fill {
+	background-color: #FFE21F;
+}
+
+/* Olive */
+.ui.olive.range .inner .track-fill {
+	background-color: #B5CC18;
+}
+.ui.olive.inverted.range .inner .track-fill {
+	background-color: #D9E778;
+}
+
+/* Green */
+.ui.green.range .inner .track-fill {
+	background-color: #21BA45;
+}
+.ui.green.inverted.range .inner .track-fill {
+	background-color: #2ECC40;
+}
+
+/* Teal */
+.ui.teal.range .inner .track-fill {
+	background-color: #00B5AD;
+}
+.ui.teal.inverted.range .inner .track-fill {
+	background-color: #6DFFFF;
+}
+
+/* Blue */
+.ui.blue.range .inner .track-fill {
+	background-color: #2185D0;
+}
+.ui.blue.inverted.range .inner .track-fill {
+	background-color: #54C8FF;
+}
+
+/* Violet */
+.ui.violet.range .inner .track-fill {
+	background-color: #6435C9;
+}
+.ui.violet.inverted.range .inner .track-fill {
+	background-color: #A291FB;
+}
+
+/* Purple */
+.ui.purple.range .inner .track-fill {
+	background-color: #A333C8;
+}
+.ui.purple.inverted.range .inner .track-fill {
+	background-color: #DC73FF;
+}
+
+/* Pink */
+.ui.pink.range .inner .track-fill {
+	background-color: #E03997;
+}
+.ui.pink.inverted.range .inner .track-fill {
+	background-color: #FF8EDF;
+}
+
+/* Brown */
+.ui.brown.range .inner .track-fill {
+	background-color: #A5673F;
+}
+.ui.brown.inverted.range .inner .track-fill {
+	background-color: #D67C1C;
+}
+
+/* Grey */
+.ui.grey.range .inner .track-fill {
+	background-color: #767676;
+}
+.ui.grey.inverted.range .inner .track-fill {
+	background-color: #DCDDDE;
+}
+
+/* Black */
+.ui.black.range .inner .track-fill {
+	background-color: #1b1c1d;
+}
+.ui.black.inverted.range .inner .track-fill {
+	background-color: #545454;
+}
+
+/*--------------
+    Disabled
+---------------*/
+.ui.range.disabled {
+	opacity: .5;
+}
+
+.ui.range.disabled .inner:hover {
+	cursor: auto;
+}
+
+.ui.range.disabled .inner .track-fill {
+	background: #ccc;
+}

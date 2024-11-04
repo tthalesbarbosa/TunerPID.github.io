@@ -1,0 +1,99 @@
+<div class="ui stackable grid">
+
+    <div class="five wide column">
+    <div class="ui one column grid">
+
+	<div class="row step-select-selected-row">
+		<h4 class="ui center aligned header">
+			{{ getModelName(this.selected_model.type) }}
+		</h4>
+	</div>
+
+	<div class="row step-select-selected-row">
+	  <div class="image model-select-img-div">
+		<p v-html="getModelEquation(this.selected_model.type)"></p>
+	  </div>
+	</div>
+
+	<div class="ui divider model-select-divider"></div>
+
+	<div class="row step-select-selected-row">
+		<div class="ui one column grid step-select-steps">
+			<div class="row step-select-item">
+			<h4 class="ui center aligned header">
+			  Identified Models
+			</h4>
+			</div>
+			<!-- repeats -->
+			<div class="row step-select-item" v-for="model in model_list">
+			  <div class="fluid ui left labeled button" tabindex="0" @click="setModel(model)">
+				<a class="ui basic right pointing label step-select-left">{{ getModelName(model.type) }}</a>
+				<div :class="{
+							   'ui'                : true,
+							   'icon'              : true, 
+							   'button'            : true,
+							   'step-select-right' : true,
+							   'blue'              : selected_model.type == model.type
+							   }">Select<i class="check icon" v-show="selected_model.type == model.type"></i></div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row step-select-reset">
+		<button class="fluid ui button" @click="resetModels()">
+			Reset Models
+		</button>
+	</div>
+
+
+	<div class="ui divider model-select-divider"></div>
+
+	<div class="row step-select-selected-row">
+		<h4 class="ui center aligned header">
+			Model Parameters
+		</h4>
+	</div>
+	<div 
+		:class="{ 'row ui fluid labeled input tune-pid-gain' : true, 'error' : param.editable && param.insync !== undefined && !param.insync }"
+		:data-tooltip  = "param.editable && param.insync !== undefined && !param.insync ? 'Press Enter' : false" 
+		 data-position = "right center" 
+		 data-inverted = ""		 
+		v-for="param in params">
+	  <div class="ui label tune-pid-label step-selected-showifbig">
+		{{ param.descrip }}
+	  </div>
+	  <div class="ui label tune-pid-label step-selected-showifsmall">
+		{{ param.name }}
+	  </div>
+	  <input type        = "number"
+	         step        = "any"
+			 :value      = "param.insync === undefined || param.insync ? param.val : param.oldVal" 
+			 :readonly   = "!param.editable" 			 
+			 :class      = "{ 'tune-pid-readonly' : !param.editable }"
+			 @keyup.enter= "syncLogicEnter($event, param)"
+			 @keyup="syncLogicKeyUp($event, param)"
+	  >
+	  <div class="ui basic label tune-pid-label-units step-selected-showifbig">
+		{{ param.units }}
+	  </div>
+	  <i class="pencil large icon tune-pid-editicon" v-show="param.editable"></i>
+	</div>	
+
+    </div>
+  </div>
+
+  <div class="eleven wide column">
+	<line-chart :chart-data="output_chart_data" 
+	            :ranges_enabled="false"
+	            :ranges="[]"
+	            :cssClasses="'import-chart'">
+	</line-chart>
+	<line-chart :chart-data="input_chart_data"  
+	            :ranges_enabled="false"
+	            :ranges="[]"
+	            :cssClasses="'import-chart'">
+	</line-chart>
+  </div>
+
+</div>

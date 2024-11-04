@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google Analytics Stuff -->
+	<script src="https://www.googletagmanager.com/gtag/js?id=UA-127046985-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-127046985-1');
+	</script>
+    <!-- Site Stuff -->
+    <meta charset="UTF-8">
+    <title>PID Tuner Controller | FREE Software</title>
+    <link rel="canonical" href="https://pidtuner.com/">
+    <link rel="shortcut icon" href="./assets/logo/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/handsontable@8.3.2/dist/handsontable.full.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="title"       content="PID Tuner : tune your PID controller gains for free">
+    <meta name="viewport"    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!-- SEO Stuff -->
+    <meta name="description" content="Download for FREE a complete pid tuner controller solution. This PID Loop Tuning Software allows you to accurately model process data resulting in optimal pid gains.">
+    <meta name="author"      content="PID Tuner">
+    <meta name="keywords"    content="pid controller, pid controller application, pid controller software, free pid controller, free pid tuner controller, free pid loop tuning, pid controller download, pid control, pid tuning software, pid tuning solution, pid tuning application, pid controls">
+    <meta property="og:title"       content="PID Tuner">
+    <meta property="og:type"        content="website">
+    <meta property="og:description" content="Free PID Controller gains tuning tool.">
+    <meta property="og:image"       content="https://pidtuner.com/index.html">
+    <meta property="og:url"         content="https://pidtuner.com/assets/snapshot/snapshot.png">
+    <meta property="og:site_name"   content="PID Tuner">
+    <meta name="twitter:title"       content="PID Tuner">
+    <meta name="twitter:description" content="Free PID Controller gains tuning tool.">
+    <meta name="twitter:image"       content="https://pidtuner.com/assets/snapshot/snapshot.png">
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:site"        content="@PidTuner">
+    <meta name="twitter:creator"     content="@PidTuner">
+    <meta name="twitter:image:alt"   content="PID Tuner friendly user interface">
+    <!-- PWA Stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#2196f3">
+</head>
+
+<body>
+
+    <div id="app" v-cloak class="site">
+        
+        <header class="ui top fixed menu">
+            <a class="header item" @click="current_page = 'home'">
+                <i class="home large icon"></i>
+                Home
+            </a>
+            <div class="right menu">
+                <div :class="{
+                             'header'   : true,
+                             'disabled' : !pid_loaded,
+                             'item'     : true
+                           }" 
+                           @click="pid_loaded ? current_page = 'pid_tuner' : current_page = 'home'" v-cloak>
+                    <div :class="{
+                                   'ui'       : true,
+                                   'blue'     : true,
+                                   'disabled' : current_page == 'pid_tuner' || !pid_loaded,
+                                   'button'   : true
+                                 }">
+                        <i :class="{'chart'   : true,
+                                    'line'    : true,
+                                    'icon'    : true,
+                                    'loading' : !pid_loaded,
+                                   }"></i>
+                        PID Tuner
+                    </div>
+                </div>
+                <a class="item" href="https://forum.pidtuner.com" target="_blank">
+                    <i class="users large icon"></i>
+                    Forum
+                </a>
+                <a class="item" href="https://github.com/pidtuner/pidtuner.github.io" target="_blank">
+                    <i class="github large icon"></i>
+                    Github
+                </a>
+            </div>
+        </header>
+
+        <div v-show="false">
+	        <!-- seo headers -->
+	        <h1>PID Tuner is an online tool to tune your PID controller gains for free.  </h1>
+	        <h1>How to tune a PID controller?                                            </h1>
+	        <h2>Tune your PID controller integral proportional and derivative gains easy.</h2>
+	        <h3>The optimal PID controller gains are obtained automatically.             </h3>
+	        <h4>The PID controller gains are optimized for your plant.                   </h4>
+	        <h5>The PID tuning outperforms the ziegler nichols method.                   </h5>
+	        <h6>PID tuning is completely free.                                           </h6>
+	        <!-- seo content -->
+	        <p>
+	        	Use this free PID controller tune software to import your data,
+	        	visualize your data in graphs, obtain a precise process system model
+	        	and the free pid gains tune algorithm to obtain the optimal pid gains
+	        	for your plant system.
+	        </p>
+	        <p>
+				pid controller : A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control.
+				pid controller application : Proportional-Integral-Derivative (PID) controllers are used in most automatic process control applications in industry today to regulate flow, temperature, pressure, level, and many other industrial process variables.
+				pid controller software : Most modern industrial facilities no longer tune loops using the manual calculation methods shown above. Instead, PID tuning and loop optimization software are used to ensure consistent results. These software packages will gather the data, develop process models, and suggest optimal tuning.
+				free pid controller : Free open source pid auto tuning software for your control project. Enables you to get the transfer function of the control loop and get optimized PID parameters accordingly.
+				free pid tuner controller : This PID Tuner software lets you perform automatic interactive tuning of PID controllers based on experimental data.
+				free pid loop tuning : A control loop system consists of three componentes, a plant (or system) to control, a controller algorithm and a feedback mechanism.
+				pid controller download : You do not need to download PID Tuning examples or code because you can do the PID Tuning interactive online for free with this software.
+				pid control : Is the most popular control algorithm in industry, manly because it is simple, robust and doog performance in a wide range of operating conditions.
+				pid control : Use the free pid tuning software and get help using our forum at <a href="https://forum.pidtuner.com">"Help forum"</a>.
+				pid tuning software : The most simple way to tune a PID is using PID tuning software that simplifies the process of improving your feedback loops.
+				pid tuning solution : PID Tuner is a solution that simplify the process of tuning multiple individual loops by obtaining PID gains that increase bandwidth and reduce oscillations.
+				pid tuning application : The PID Tuner application lets you achieve the desired performance and design requirements while being completely free.  
+				pid controls : With the feedback control loop the PID controller corrects for errors between the process variables and a desired setpoint.
+				drone : Tune your pitch, roll, jaw PID controller for your quadcopter drone.
+				process control : Tune your process PID control to optimize your plant performance, minimizong errors and maximizing production.
+				This website uses material from the Wikipedia article <a href="https://en.wikipedia.org/wiki/PID_controller">"PID_controller"</a>, which is released under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share-Alike License 3.0</a>
+	        </p>
+	        <!-- seo social -->
+	        <a href="https://www.linkedin.com/company/pidtuner"     >PID Tuner LinkedIn  </a>
+	        <a href="https://twitter.com/pidtuner"                  >PID Tuner Twitter   </a>
+	        <a href="https://www.reddit.com/user/pidtuner"          >PID Tuner Reddit    </a>
+	        <a href="https://github.com/pidtuner/pidtuner.github.io">PID Tuner Github    </a>
+	        <a href="https://news.ycombinator.com/user?id=pidtuner" >PID Tuner HackerNews</a>
+	        <a href="https://www.patreon.com/pidtuner"              >PID Tuner Patreon   </a>
+	        <a href="mailto:pidtuner@pidtuner.com"                  >PID Tuner Mail      </a>
+	        <a href="https://teespring.com/pidtuner"                >PID Tuner Teespring </a>
+	        <!-- seo images -->
+	        <img src="./assets/logo/pidtuner_logo.png" alt="PID Tuner Logo"                                 >
+	        <img src="./assets/snapshot/snapshot.png"  alt="PID Tuner Interface"                            >
+	        <img src="./assets/gifs/wizard.gif"        alt="PID Tuner Interactive"                          >
+	        <img src="./assets/models/1stord.svg"      alt="PID Control First Order System Equation"        >
+			<img src="./assets/models/2ndord.svg"      alt="PID Control Second Order System Equation"       >
+			<img src="./assets/models/integ.svg"       alt="PID Control Integrator System Equation"         >
+			<img src="./assets/models/integdouble.svg" alt="PID Control Double Integrator System Equation"  >
+			<img src="./assets/models/integlag.svg"    alt="PID Control Integrator with Lag System Equation">
+			<img src="./assets/models/pid.svg"         alt="PID Control Equation"                           >
+			<img src="./assets/models/pid_block.svg"   alt="PID Control Block Diagram"                      >
+    	</div>
+
+        <main class="site-content ui segment">
+            <keep-alive>
+                <component 
+                    :is="getComponent(current_page)"
+                    :pid_loaded="pid_loaded"
+                    :window_width="window_width"
+                    @load_pid="current_page = 'pid_tuner'"
+                >
+                </component>
+            </keep-alive>	
+        </main>
+
+        <footer class="ui compact bottom fixed icon menu"> 
+        <a class="item social-item" 
+           v-for="social in list_social" 
+           :href="social.url" target="_blank" 
+           :data-tooltip="social.name" data-inverted="">
+          <i :class="[social.icon, 'large', 'icon']"></i>
+        </a>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.3/vue-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui-range@1.0.1/range.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@8.3.2/dist/handsontable.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@handsontable/vue@5.1.0/dist/vue-handsontable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-chartjs/3.5.0/vue-chartjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-draggable@0.1.6/dist/chartjs-plugin-draggable.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/config/TeX-MML-AM_CHTML-full.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/3.0.3/dexie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comlink@4.3.0/dist/umd/comlink.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parse/2.19.0/parse.min.js"></script>
+
+    <script src="./app/utils.js">                     </script>
+    <script src="./app/components/HomeView.js">       </script>
+    <script src="./app/components/ErrorView.js">      </script>
+    <script src="./app/components/LineChartView.js">  </script>
+    <script src="./app/components/LogChartView.js">   </script>
+    <script src="./app/components/PidTunerView.js">   </script>
+    <script src="./app/components/ImportDataView.js"> </script>
+    <script src="./app/components/SelectStepView.js"> </script>
+    <script src="./app/components/SelectModelView.js"></script>
+    <script src="./app/components/TunePidView.js">    </script>
+    <script src="./app/app.js"></script>
+
+    <script src="./assets/test_data.js"></script>
+
+</body>
+
+</html>
